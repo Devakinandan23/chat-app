@@ -13,7 +13,7 @@ wss.on("connection",function(socket){
     socket.on("message", (message)=>{
         //@ts-ignore
         console.log("user has joined the chat",AllUsers.length+1);
-        let parsedMessage = JSON.parse(message);
+        let parsedMessage = JSON.parse(message.toString());
         if(parsedMessage.type == "join"){
             AllUsers.push({
                 socket,
